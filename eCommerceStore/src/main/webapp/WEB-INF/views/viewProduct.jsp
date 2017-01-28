@@ -57,9 +57,9 @@
    <div class="col-md-5">
            <h3>${product.name}</h3>
            <p>${product.description}</p>
-           <p><b>Author:</b>${product.author}</p>
-           <p><b>Published By:</b>${product.publisher}</p>
-           <p><b>Price:</b>${product.unitPrice} Rupees</p>
+           <p><b>Author: </b>${product.author}</p>
+           <p><b>Published By: </b>${product.publisher}</p>
+           <p><b>Price: </b>${product.unitPrice} Rupees</p>
            <p><b>Delivery within 4-7 business Days</b></p>
 
    </div>

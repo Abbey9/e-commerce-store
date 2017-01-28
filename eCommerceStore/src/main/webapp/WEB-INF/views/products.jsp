@@ -54,20 +54,23 @@
     <thead>
 	 <tr class="bg-sucess">
 	  <th>Photothumb</th>
-	  <th>Product Name</th>
+	  <th>Book Name</th>
 	  <th>Author</th>
-	  <th>Description</th>
+	  <th>Category</th>
 	  <th>Price</th>
-	  <th>Stock available</th>
+	  <th>Stock</th>
+	  <th>Details</th>
+	  
      </tr>
     </thead>
 	<tr>
 	 <td><img src="#" alt="image" /></td>
 	 <td>${product.name}</td>
 	 <td>${product.author }</td>
-	 <td>${product.description}</td>
+	 <td>${product.category}</td>
 	 <td>${product.unitPrice}</td>
 	 <td>${product.unitsInStock}</td>
+	 <td><a href="<c:url value="/products/viewProduct" />"><span class="glyphicon glyphicon-info-sign"></span></a>
 	</tr>
    </table>
    
