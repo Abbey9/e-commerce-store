@@ -13,18 +13,31 @@ public class ProductController {
 	@RequestMapping("/products")
 	public String list(Model model){
 		
-		Product book1=new Product("Lit001","Sherlock Holmes",new BigDecimal(500));
-		book1.setAuthor("Dan Brown");
-		book1.setDescription("Present in this omnibus edition, are four unabridged novels of Baker Streets most famous resident Sherlock Holmes and his confidant and aide, Dr. Watson. The saga of their adventures begin right from the time they are first introduced to each other by a certain young stamford to share rooms in Baker Street, where Watson chronicled their first adventure A Study in Scarlet.");
+		Product book1=new Product("Lit001","The Adventures of Sherlock Holmes",new BigDecimal(500));
+		book1.setAuthor("Arthur Conan Doyle");
+		book1.setDescription("The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between June 1891 and July 1892.In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices.");
 		book1.setCategory("Literature and Fiction");
-		book1.setPublisher("Mcgraw Hills Publications");
-		book1.setUnitsInStock(1000);
+		book1.setPublisher("George Newnes");
+		book1.setUnitsInStock(100);
 		
 		model.addAttribute("product", book1);
 		
 		return "products";
-		
 	}
 	
+	@RequestMapping("/products/viewProduct")
+	public String viewProducts(Model model){
+		
+		Product book1=new Product("Lit001","The Adventures of Sherlock Holmes",new BigDecimal(500));
+		book1.setAuthor("Arthur Conan Doyle");
+		book1.setDescription("The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between June 1891 and July 1892.In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices.");
+		book1.setCategory("Literature and Fiction");
+		book1.setPublisher("George Newnes");
+		book1.setUnitsInStock(100);
+		
+		model.addAttribute("product", book1);
+		
+		return "viewProduct";
+	}
 
 }
