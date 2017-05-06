@@ -10,61 +10,87 @@ import com.myapps.ecommercestore.domain.Product;
 import com.myapps.ecommercestore.domain.repository.ProductRepository;
 
 @Repository
-public class InMemoryProductRepository implements ProductRepository{
-   
-	private List<Product> listOfProducts=new ArrayList<Product> ();
-	
-	public InMemoryProductRepository(){
+public class InMemoryProductRepository implements ProductRepository {
+
+	private List<Product> listOfProducts = new ArrayList<Product>();
+
+	public InMemoryProductRepository() {
+
+		Product literature = new Product("LIT001", "The Adventures of Sherlock Holmes", new BigDecimal(500));
+
+		literature.setAuthor("Arthur Conan Doyle");
+		literature.setDescription(
+				"The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between June 1891 and July 1892.In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices.");
+		literature.setCategory("Literature and Fiction");
+		literature.setPublisher("George Newnes");
+		literature.setUnitsInStock(1000);
+
+		Product biography = new Product("BIO002", "The Story of My Experiments with Truth", new BigDecimal(700));
+
+		biography.setAuthor("Mohandas Karamchand Ghandi");
+		biography.setDescription(
+				"There is a reason as to why there can never be another Mahatma Gandhi.The Story of My Experiments with Truth is the compelling autobiography of Mohandas Karamchand Gandhi, who in his quest for freedom of his country, inspired millions with the strength of his willpower and personal actions. His immovable belief in truth and non-violence even in the most difficult situations made him a true hero.");
+		biography.setCategory("Biographies");
+		biography.setPublisher("Universities Press");
+		biography.setUnitsInStock(999);
+
+		Product romance = new Product("ROM003", "The NoteBook", new BigDecimal(400));
+
+		romance .setAuthor("Nicholas Sparks");
+		romance .setDescription(
+				"The Notebook is internationally bestselling love story: The love story to end all love stories.Somewhere, muses Noah Calhoun, while sitting on his porch in the moonight, 'there were people making love'. The Notebook, a Southern-fried story of love-lost-and-found-again, revolves around a single time-honored romantic dilemma: will beautiful Allison Nelson stay with Mr. Respectability (to whom she happens to be engaged), or will she choose Noah, the romantic rascal she left so many years ago? ");
+		romance.setCategory("Romance");
+		romance.setPublisher("Little, Brown Book Group");
+		romance.setUnitsInStock(300);
 		
-	Product lit=new Product("Lit001","The Adventures of Sherlock Holmes",new BigDecimal(500));
-	
-    lit.setAuthor("Arthur Conan Doyle");
-    lit.setDescription("The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between June 1891 and July 1892.In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices.");
-	lit.setCategory("Literature and Fiction");
-	lit.setPublisher("George Newnes");
-	lit.setUnitsInStock(100);
-	
-	Product bio=new Product("Bio002","The Story of My Experiments with Truth",new BigDecimal(700));
-	
-    bio.setAuthor("Mohandas Karamchand Ghandi");
-    bio.setDescription("There is a reason as to why there can never be another Mahatma Gandhi.'The Story of My Experiments with Truth’ is the compelling autobiography of Mohandas Karamchand Gandhi, who in his quest for freedom of his country, inspired millions with the strength of his willpower and personal actions. His immovable belief in truth and non-violence even in the most difficult situations made him a true hero.");
-    bio.setCategory("Biographies");
-    bio.setPublisher("Universities Press");
-    bio.setUnitsInStock(100);
-    
-    
-    Product rom=new Product("Rom003","The NoteBook", new BigDecimal(400));
-    
-    rom.setAuthor("Nicholas Sparks");
-    rom.setDescription("The Notebook is internationally bestselling love story: The love story to end all love stories.Somewhere, muses Noah Calhoun, while sitting on his porch in the moonight, 'there were people making love'. The Notebook, a Southern-fried story of love-lost-and-found-again, revolves around a single time-honored romantic dilemma: will beautiful Allison Nelson stay with Mr. Respectability (to whom she happens to be engaged), or will she choose Noah, the romantic rascal she left so many years ago? ");
-    rom.setCategory("Romance");
-    rom.setPublisher("Little, Brown Book Group");
-    bio.setUnitsInStock(100);
-    
-    listOfProducts.add(lit);
-    listOfProducts.add(bio);
-    listOfProducts.add(rom);
+		Product bestseller = new Product("BEST006", "How to Win Friends and Influence People", new BigDecimal(339));
+
+		bestseller.setAuthor("Dale Carnegie");
+		bestseller.setDescription("How to win friends and influence people: is a self-help book which is the pioneer of this genre. Written by Dale Carnegie and published in 1936, it has sold over 30 million copies.This book is a guide in improving a person's aura in the world. As long as you have good friends and good business associations, you will probably stay strong in personal as well as professional life. This is one of the most influential business and communication skills guide.");
+		bestseller.setCategory("BestSellers");
+		bestseller.setPublisher("RH-UK Publishers");
+		bestseller.setUnitsInStock(99);
+
+
+		listOfProducts.add(literature);
+		listOfProducts.add(biography);
+		listOfProducts.add(romance);
+		listOfProducts.add(bestseller);
+		
 	}
-	
+
 	public List<Product> getAllProducts() {
-		
+
 		return listOfProducts;
 	}
 
-	public Product getProductById(String productID) {
-		Product productById=null;
+	public Product getProductById(String productId) {
 		
-		for(Product product: listOfProducts){
-			if(product!=null && product.getProductId()!=null && product.getProductId().equals(productById)){			
-		    productById=product;
-		    break;
+		Product productById = null;
+
+		for (Product product : listOfProducts) {
+			if (product != null && product.getProductId() != null && product.getProductId().equals(productId)) {
+				productById = product;
+				break;
 			}
 		}
+
+		if (productById == null) {
+			throw new IllegalArgumentException("No products found with the productId:" + productId);
+		}
+
+		return productById;
+	}
+
+	public List<Product> getProductsByCategory(String category) {
 		
-	    if(productById == null){
-		   throw new IllegalArgumentException("No products found with the productId:"+productID); 
-	   }
-	   
-	   return productById;	
+		List<Product> productByCategory = new ArrayList<Product>();
+
+		for (Product product : listOfProducts) {
+			if (category.equalsIgnoreCase(product.getCategory())) {
+				productByCategory.add(product);
+			}
+		}
+		return productByCategory;
 	}
 }
