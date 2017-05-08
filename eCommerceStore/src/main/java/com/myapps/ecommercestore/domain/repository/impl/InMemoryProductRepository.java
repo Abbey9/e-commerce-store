@@ -21,7 +21,7 @@ public class InMemoryProductRepository implements ProductRepository {
 		literature.setAuthor("Arthur Conan Doyle");
 		literature.setDescription(
 				"The Adventures of Sherlock Holmes is a collection of twelve short stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between June 1891 and July 1892.In general the stories in The Adventures of Sherlock Holmes identify, and try to correct, social injustices.");
-		literature.setCategory("Literature and Fiction");
+		literature.setCategory("Literature");
 		literature.setPublisher("George Newnes");
 		literature.setUnitsInStock(1000);
 
@@ -36,26 +36,26 @@ public class InMemoryProductRepository implements ProductRepository {
 
 		Product romance = new Product("ROM003", "The NoteBook", new BigDecimal(400));
 
-		romance .setAuthor("Nicholas Sparks");
-		romance .setDescription(
+		romance.setAuthor("Nicholas Sparks");
+		romance.setDescription(
 				"The Notebook is internationally bestselling love story: The love story to end all love stories.Somewhere, muses Noah Calhoun, while sitting on his porch in the moonight, 'there were people making love'. The Notebook, a Southern-fried story of love-lost-and-found-again, revolves around a single time-honored romantic dilemma: will beautiful Allison Nelson stay with Mr. Respectability (to whom she happens to be engaged), or will she choose Noah, the romantic rascal she left so many years ago? ");
 		romance.setCategory("Romance");
 		romance.setPublisher("Little, Brown Book Group");
 		romance.setUnitsInStock(300);
 		
-		Product bestseller = new Product("BEST006", "How to Win Friends and Influence People", new BigDecimal(339));
+		Product bestsellers = new Product("BEST006", "How to Win Friends and Influence People", new BigDecimal(339));
 
-		bestseller.setAuthor("Dale Carnegie");
-		bestseller.setDescription("How to win friends and influence people: is a self-help book which is the pioneer of this genre. Written by Dale Carnegie and published in 1936, it has sold over 30 million copies.This book is a guide in improving a person's aura in the world. As long as you have good friends and good business associations, you will probably stay strong in personal as well as professional life. This is one of the most influential business and communication skills guide.");
-		bestseller.setCategory("BestSellers");
-		bestseller.setPublisher("RH-UK Publishers");
-		bestseller.setUnitsInStock(99);
+		bestsellers.setAuthor("Dale Carnegie");
+		bestsellers.setDescription("How to win friends and influence people: is a self-help book which is the pioneer of this genre. Written by Dale Carnegie and published in 1936, it has sold over 30 million copies.This book is a guide in improving a person's aura in the world. As long as you have good friends and good business associations, you will probably stay strong in personal as well as professional life. This is one of the most influential business and communication skills guide.");
+		bestsellers.setCategory("BestSellers");
+		bestsellers.setPublisher("RH-UK Publishers");
+		bestsellers.setUnitsInStock(99);
 
 
 		listOfProducts.add(literature);
 		listOfProducts.add(biography);
 		listOfProducts.add(romance);
-		listOfProducts.add(bestseller);
+		listOfProducts.add(bestsellers);
 		
 	}
 
@@ -84,13 +84,13 @@ public class InMemoryProductRepository implements ProductRepository {
 
 	public List<Product> getProductsByCategory(String category) {
 		
-		List<Product> productByCategory = new ArrayList<Product>();
+		List<Product> productsByCategory = new ArrayList<Product>();
 
 		for (Product product : listOfProducts) {
 			if (category.equalsIgnoreCase(product.getCategory())) {
-				productByCategory.add(product);
+				productsByCategory.add(product);
 			}
 		}
-		return productByCategory;
+		return productsByCategory;
 	}
 }
