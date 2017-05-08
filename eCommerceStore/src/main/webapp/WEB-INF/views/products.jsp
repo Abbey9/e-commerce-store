@@ -19,7 +19,7 @@
 <section class="container">
 	<div class="row">
 		<c:forEach items="${products}" var="product">
-			<div class="col-sm-6 col sm-3" style="padding-bottom: 10px">
+			<div class="col-md-6 col-md-3" style="padding-bottom: 15px">
 				<div class="thumbnail">
 					<div class="caption">
 						<h3><b>${product.name}</b></h3>
