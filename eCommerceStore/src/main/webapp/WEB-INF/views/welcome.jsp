@@ -33,6 +33,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a
 						href="<c:url value="/home"/>">Home</a></li>
+						
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
@@ -71,7 +72,7 @@
 		<div class="row">
 			<div class="col-md-3">
 				<h3>
-					<a href="<c:url value="/products/literature"/>"> Literature & Fiction</a>
+					<a href="<c:url value="/products/literature"/>">Literature & Fiction</a>
 				</h3>
 				<p>While their works of literature & fiction may be very
 					different, these critically lauded authors share an uncanny ability
@@ -82,11 +83,11 @@
 					emotional dynamics of family to the psychological upheaval of war.
 					Fiction & Literature Books grab hold of our imaginations and keeps
 					us close.</p>
-				<a href="<c:url value="/products/literature"/>" class="btn btn-default">Find all Fiction</a>
+				<a href="<c:url value="/products/literature"/>" class="btn btn-default">Find all Literature & Fiction</a>
 			</div>
 			<div class="col-md-3">
 				<h3>
-					<a href="<c:url value="/products/biography"/>">Biograhies </a>
+					<a href="<c:url value="/products/biographies"/>">Biograhies </a>
 				</h3>
 				<p>Whether it's the final journey of a spiritual mentor or the
 					art of innovation from a young computer genius, the courage to
@@ -94,7 +95,7 @@
 					autobiography of a public personality, you'll find these stories
 					and much more in our Biographies section. When you shop biographies
 					and memoirs with you read more and spend less.</p>
-				<a href="<c:url value="/products/biography"/>" class="btn btn-default">Find all Biograhies</a>
+				<a href="<c:url value="/products/biographies"/>" class="btn btn-default">Find all Biograhies</a>
 			</div>
 			<div class="col-md-3">
 				<h3>
@@ -113,11 +114,11 @@
 			</div>
 			<div class="col-md-3">
 				<h3>
-					<a href="<c:url value="/products/bestseller"/>">Best-Sellers</a>
+					<a href="<c:url value="/products/bestsellers"/>">Best-Sellers</a>
 				</h3>
 				<p>Choose from thousands of best sellers and hundreds of new
 					releases every week at our e-BookStore</p>
-				<a href="<c:url value="/products/bestseller"/>" class="btn btn-default">Find out all BestSellers</a>
+				<a href="<c:url value="/products/bestsellers"/>" class="btn btn-default">Find out all BestSellers</a>
 			</div>
 		</div>
 	</div>
