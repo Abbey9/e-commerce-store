@@ -35,6 +35,12 @@ public class ProductController {
 	    return "products";
 	}
 	
+	@RequestMapping("/product")
+	public String getProductById(@RequestParam("id") String productId, Model model){
+		model.addAttribute("product", productService.getProductById(productId));
+		return "product";	
+	}
+	
 	@RequestMapping("/{category}")
 	public String getProductsByCategory(@PathVariable("category") String productCategory, Model model){
 	    model.addAttribute("products", productService.getProductsByCategory(productCategory));
